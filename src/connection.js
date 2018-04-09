@@ -1948,10 +1948,10 @@ connection.prototype.send = function (messageSource) {
     var message = messageSource;
     if (message.type === 'txt') {
         if (this.encrypt.type === 'base64') {
-            //message = _.clone(messageSource);
+            message = Object.assign({}, messageSource);
             message.msg = btoa(message.msg);
         } else if (this.encrypt.type === 'aes') {
-            //message = _.clone(messageSource);
+            message = Object.assign({}, messageSource);
             var key = CryptoJS.enc.Utf8.parse(this.encrypt.key);
             var iv = CryptoJS.enc.Utf8.parse(this.encrypt.iv);
             var mode = this.encrypt.mode.toLowerCase();
