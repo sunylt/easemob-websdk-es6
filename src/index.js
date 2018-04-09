@@ -1,6 +1,4 @@
 import WebIM from "./connection"
-import { EAFNOSUPPORT } from "constants";
-
 
 // demo code below
 const connection = new WebIM.connection({

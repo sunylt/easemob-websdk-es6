@@ -1,19 +1,16 @@
-import {Strophe} from "strophe.js"
+import { Strophe } from "strophe.js"
+import CryptoJS from "crypto-js"
+import Queue from "./queue"
+import _utils from "./utils"
+import _code from "./status"
+import _msg from "./message"
 
-var _version = '1.4.13';
-var _code = require('./status').code; 
-var _utils = require('./utils').utils; 
-var _msg = require('./message');
-var _message = _msg._msg;
-var _msgHash = {};
-var Queue = require('./queue').Queue;
-var CryptoJS = require('crypto-js');
-//var _ = require('underscore');
+const _version = '1.4.13';
+const _message = _msg._msg;
 
-
-
-var isStropheLog;
-var stropheConn = null
+let _msgHash = {};
+let isStropheLog;
+let stropheConn = null
 
 window.URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
 
@@ -378,7 +375,7 @@ var _parseFriend = function (queryTag, conn, from) {
 var _login = function (options, conn) {
     var accessToken = options.access_token || '';
     if (accessToken == '') {
-        var loginfo = _utils.stringify(options);
+        var loginfo = JSON.stringify(options);
         conn.onError({
             type: _code.WEBIM_CONNCTION_OPEN_USERGRID_ERROR,
             data: options
@@ -1045,7 +1042,7 @@ connection.prototype.signup = function (options) {
         nickname: options.nickname || ''
     };
 
-    var userinfo = _utils.stringify(userjson);
+    var userinfo = JSON.stringify(userjson);
     var options2 = {
         url: restUrl,
         dataType: 'json',
@@ -1144,7 +1141,7 @@ connection.prototype.login = function (options) {
             password: pwd,
             timestamp: +new Date()
         };
-        var loginfo = _utils.stringify(loginJson);
+        var loginfo = JSON.stringify(loginJson);
 
         var options2 = {
             url: apiUrl + '/' + orgName + '/' + appName + '/token',
@@ -3843,7 +3840,7 @@ WebIM.debug = function (bool) {
 
 }
 
-module.exports = WebIM;
+export default WebIM
 
 if (module.hot) {
     module.hot.accept();
