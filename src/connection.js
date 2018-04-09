@@ -27,6 +27,15 @@ if (window.XDomainRequest) {
     // };
 }
 
+Strophe.Connection.prototype.setJid = function (jid) {
+    this.jid = jid;
+    this.authzid = Strophe.getBareJidFromJid(this.jid);
+    this.authcid = Strophe.getNodeFromJid(this.jid);
+}
+
+Strophe.Connection.prototype.getJid = function () {
+    return this.jid;
+}
 
 Strophe.Request.prototype._newXHR = function () {
     var xhr = _utils.xmlrequest(true);
