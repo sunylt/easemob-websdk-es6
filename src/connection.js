@@ -27,7 +27,7 @@ if (window.XDomainRequest) {
     // };
 }
 
-/*
+
 Strophe.Request.prototype._newXHR = function () {
     var xhr = _utils.xmlrequest(true);
     if (xhr.overrideMimeType) {
@@ -51,7 +51,6 @@ Strophe.Websocket.prototype._closeSocket = function () {
         this.socket = null;
     }
 };
-*/
 
 /** Function: log
  *  User overrideable logging function.
@@ -120,7 +119,6 @@ Strophe.log =  function (level, msg) {
  * this will trigger socket.onError, therefore _doDisconnect again.
  * Fix it by overide  _onMessage
  */
-/*
 Strophe.Websocket.prototype._onMessage = function (message) {
     logMessage(message)
     // 获取Resource
@@ -185,7 +183,6 @@ Strophe.Websocket.prototype._onMessage = function (message) {
     }
     this._conn._dataRecv(elem, message.data);
 };
-*/
 
 var _listenNetwork = function (onlineCallback, offlineCallback) {
 
