@@ -5,7 +5,7 @@ import _utils from "./utils"
 import _code from "./status"
 import _msg from "./message"
 
-const _version = '1.4.13';
+const _version = '3.0.0';
 const _message = _msg._msg;
 
 let _msgHash = {};

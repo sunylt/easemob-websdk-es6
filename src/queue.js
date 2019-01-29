@@ -80,7 +80,7 @@ export default class Queue {
      * @return {[type]}     [description]
      */
     push(obj) {
-        this._array_h.push(obj);
+        this._array_h.push(obj)
     }
 
     /**
@@ -89,15 +89,15 @@ export default class Queue {
      * @return {Object} [description]
      */
     pop() {
-        var ret = null;
+        let ret = null
         if (this._array_h.length()) {
-            ret = this._array_h.at(this._index);
+            ret = this._array_h.at(this._index)
             if (++this._index * 2 >= this._array_h.length()) {
-                this._array_h.slice(this._index);
-                this._index = 0;
+                this._array_h.slice(this._index)
+                this._index = 0
             }
         }
-        return ret;
+        return ret
     }
 
     /**
@@ -106,11 +106,11 @@ export default class Queue {
      * @return {Object} [description]
      */
     head() {
-        var ret = null, len = this._array_h.length();
+        let ret = null, len = this._array_h.length()
         if (len) {
-            ret = this._array_h.at(len - 1);
+            ret = this._array_h.at(len - 1)
         }
-        return ret;
+        return ret
     }
 
     /**
@@ -119,11 +119,11 @@ export default class Queue {
      * @return {Object} [description]
      */
     tail() {
-        var ret = null, len = this._array_h.length();
+        let ret = null, len = this._array_h.length()
         if (len) {
-            ret = this._array_h.at(this._index);
+            ret = this._array_h.at(this._index)
         }
-        return ret;
+        return ret
     }
 
     /**
@@ -132,7 +132,7 @@ export default class Queue {
      * @return {Number} [description]
      */
     length() {
-        return this._array_h.length() - this._index;
+        return this._array_h.length() - this._index
     }
 
     /**
@@ -141,11 +141,11 @@ export default class Queue {
      * @return {Boolean} [description]
      */
     empty() {
-        return (this._array_h.length() === 0);
+        return (this._array_h.length() === 0)
     }
 
     clear() {
-        this._array_h.clear();
+        this._array_h.clear()
     }
 
 }

@@ -135,46 +135,6 @@ const utils = {
         return null;
     }()),
 
-    login: function (options) {
-        var options = options || {};
-        var suc = options.success || EMPTYFN;
-        var err = options.error || EMPTYFN;
-
-        var appKey = options.appKey || '';
-        var devInfos = appKey.split('#');
-        if (devInfos.length !== 2) {
-            err({
-                type: _code.WEBIM_CONNCTION_APPKEY_NOT_ASSIGN_ERROR
-            });
-            return false;
-        }
-
-        var orgName = devInfos[0];
-        var appName = devInfos[1];
-        var https = https || options.https;
-        var user = options.user || '';
-        var pwd = options.pwd || '';
-
-        var apiUrl = options.apiUrl;
-
-        var loginJson = {
-            grant_type: 'password',
-            username: user,
-            password: pwd,
-            timestamp: +new Date()
-        };
-        var loginfo = utils.stringify(loginJson);
-
-        var options = {
-            url: apiUrl + '/' + orgName + '/' + appName + '/token',
-            dataType: 'json',
-            data: loginfo,
-            success: suc,
-            error: err
-        };
-        return utils.ajax(options);
-    },
-
     getFileUrl: function (fileInputId) {
         var uri = {
             url: '',
